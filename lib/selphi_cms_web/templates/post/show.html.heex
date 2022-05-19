@@ -1,0 +1,53 @@
+<h1>Show Post</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @post.title %>
+  </li>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @post.content %>
+  </li>
+
+  <li>
+    <strong>Cover:</strong>
+    <%= @post.cover %>
+  </li>
+
+  <li>
+    <strong>Read count:</strong>
+    <%= @post.read_count %>
+  </li>
+
+  <li>
+    <strong>Rating:</strong>
+    <%= @post.rating %>
+  </li>
+
+  <li>
+    <strong>Price:</strong>
+    <%= @post.price %>
+  </li>
+
+  <li>
+    <strong>User:</strong>
+    <%= @post.user_id %>
+  </li>
+
+  <li>
+    <strong>Is lock:</strong>
+    <%= @post.is_lock %>
+  </li>
+
+  <li>
+    <strong>Is online:</strong>
+    <%= @post.is_online %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.post_path(@conn, :edit, @post) %></span> |
+<span><%= link "Back", to: Routes.post_path(@conn, :index) %></span>

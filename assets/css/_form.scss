@@ -1,0 +1,344 @@
+.caption {
+  //color: #363636;
+  @apply text-base-content block;
+  font-size: 1rem;
+  font-weight: 700;
+  a {
+    @apply text-primary hover:text-base-content;
+  }
+  &:not(:last-child){
+    margin-bottom: 0.5em;
+  }
+  &.is-small{
+    font-size: 0.75rem;
+  }
+  &.is-medium{
+    font-size: 1.25rem;
+  }
+  &.is-large{
+    font-size: 1.5rem;
+  }
+}
+
+.help {
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  &.is-white {
+    color: white;
+  }
+  &.is-black {
+    color: #0a0a0a;
+  }
+  &.is-light {
+    color: whitesmoke;
+  }
+  &.is-dark {
+    color: #363636;
+  }
+  &.is-primary {
+   @apply text-primary
+  }
+  &.is-secondary {
+   @apply text-secondary
+  }
+  &.is-accent {
+   @apply text-accent
+  }
+  &.is-neutral {
+   @apply text-neutral
+  }
+  &.is-info {
+   @apply text-info
+  }
+  &.is-success {
+   @apply text-success
+  }
+  &.is-warning {
+   @apply text-warning
+  }
+  &.is-error {
+   @apply text-error
+  }
+}
+
+.field{
+  &:not(:last-child){
+    margin-bottom: 0.75rem;
+  }
+  &.has-addons{
+    display: flex;
+    justify-content: flex-start;
+    .control{
+      &:not(:last-child){
+        margin-right: -1px;
+      }
+      &:not(:first-child):not(:last-child){
+        .btn,
+        .input,
+        .textarea,
+        .select{
+          border-radius: 0;
+        }
+      }
+      &:first-child:not(:only-child){
+        .btn,
+        .input,
+        .textarea,
+        .select{
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+      &:last-child:not(:only-child){
+        .btn,
+        .input,
+        .textarea,
+        .select{
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+      }
+
+      .btn,
+      .input,
+      .textarea,
+      .select {
+        &:not([disabled]){
+          &:hover,
+          &.is-hovered{
+            z-index: 2;
+          }
+          &:focus,
+          &.is-focused,
+          &:active,
+          &.is-active{
+            z-index: 3;
+            &:hover{
+              z-index: 4;
+            }
+          }
+
+        }
+      }
+      &.is-expanded{
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+    }
+
+    &.has-addons-centered{
+      justify-content: center;
+    }
+    &.has-addons-right{
+      justify-content: flex-end;
+    }
+    &.has-addons-fullwidth{
+      .control{
+        flex-grow: 1;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &.is-grouped{
+    display: flex;
+    justify-content: flex-start;
+    & > .control{
+      flex-shrink: 0;
+      &:not(:last-child){
+        margin-bottom: 0;
+        margin-right: 0.75rem;
+      }
+      &.is-expanded{
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+    }
+    &.is-grouped-centered{
+      justify-content: center;
+    }
+    &.is-grouped-right{
+      justify-content: flex-end;
+    }
+    &.is-grouped-multiline{
+      flex-wrap: wrap;
+      & > .control{
+        &:last-child,
+        &:not(:last-child){
+          margin-bottom: 0.75rem;
+        }
+      }
+      &:last-child{
+        margin-bottom: -0.75rem;
+      }
+      &:not(:last-child){
+        margin-bottom: 0;
+      }
+    }
+
+  }
+  @media screen and (min-width: 769px), print {
+    &.is-horizontal {
+      display: flex;
+    }
+  }
+}
+
+
+.field-label{
+
+  .caption{
+    font-size: inherit;
+  }
+  @media screen and (max-width: 768px) {
+      margin-bottom: 0.5rem;
+  }
+  @media screen and (min-width: 769px), print {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    margin-right: 1.5rem;
+    text-align: right;
+    @apply  flex items-start justify-end;
+    &.is-small{
+      font-size: 0.75rem;
+      //padding-top: 0.375em;
+    }
+    &.is-normal{
+      //padding-top: 0.375em;
+    }
+    &.is-medium{
+      font-size: 1.25rem;
+      //padding-top: 0.375em;
+    }
+    &.is-large{
+      font-size: 1.5rem;
+      //padding-top: 0.375em;
+    }
+  }
+}
+
+.field-body{
+  .field .field{
+    margin-bottom: 0;
+  }
+  @media screen and (min-width: 769px), print {
+    //display: flex;
+    @apply flex flex-wrap;
+    flex-basis: 0;
+    flex-grow: 5;
+    flex-shrink: 1;
+    .field{
+      margin-bottom: 0;
+    }
+    & > .field{
+      flex-shrink: 1;
+      &:not(.is-narrow){
+        flex-grow: 1
+      }
+      &:not(:last-child){
+        margin-right: 0.75rem;
+      }
+    }
+  }
+}
+
+.control{
+  box-sizing: border-box;
+  clear: both;
+  font-size: 1rem;
+  position: relative;
+  text-align: inherit;
+  &.has-icons-left,
+  &.has-icons-right{
+    .input,
+    .textarea,
+    .select{
+      &:focus{
+        & ~ .icon{
+          color: #4a4a4a;
+        }
+      }
+      &.is-small ~ .icon{
+        font-size: 0.75rem;
+      }
+      &.is-medium ~ .icon{
+        font-size: 1.25rem;
+      }
+      &.is-large ~ .icon{
+        font-size: 1.5rem;
+      }
+    }
+    .icon{
+      //@apply absolute top-1/2;
+      @apply h-full;
+      color: #dbdbdb;
+      //height: 3.0em;
+      //pointer-events: none;
+      position: absolute;
+      top: 0;
+      width: 2.5em;
+      z-index: 4;
+    }
+  }
+  &.has-icons-left{
+    .input,
+    .textarea,
+    .select{
+      padding-left: 2.5em;
+    }
+    .icon.is-left{
+      left: 0;
+    }
+  }
+  &.has-icons-right{
+    .input,
+    .textarea,
+    .select{
+      padding-right: 2.5em;
+    }
+    .icon.is-right{
+      right: 0;
+    }
+  }
+  &.is-loading{
+    &::after{
+      // loader
+      -webkit-animation: spinAround 500ms infinite linear;
+              animation: spinAround 500ms infinite linear;
+      border: 2px solid #dbdbdb;
+      border-radius: 9999px;
+      border-right-color: transparent;
+      border-top-color: transparent;
+      content: "";
+      display: block;
+      height: 1em;
+      //position: relative;
+      width: 1em;
+
+      position: absolute !important;
+      right: 0.625em;
+      top: 0.625em;
+      z-index: 4;
+    }
+    &.is-small:after{
+      font-size: 0.75rem;
+    }
+    &.is-medium:after{
+      font-size: 1.25rem;
+    }
+    &.is-large:after{
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@keyframes spinAround{
+   from{
+     transform: rotate(0deg)
+   }
+   to{
+     transform: rotate(359deg)
+   }
+}

@@ -1,0 +1,8 @@
+.table {
+  @apply min-w-full w-auto;
+  td:last-child, th:last-child {
+    @apply sticky right-0 z-10;
+    /* because safari */
+    position: -webkit-sticky;
+  }
+}

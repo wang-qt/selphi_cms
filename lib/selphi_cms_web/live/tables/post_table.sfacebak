@@ -1,0 +1,71 @@
+<div class="min-w-full mx-auto">
+    <h1>文章管理</h1>
+    <div>
+
+    </div>
+    <div >
+      <Table id="live-table"  items={ post <- @data_list } check hover  footer
+            per_page={assigns.params.per_page}
+            class="table-compact sm:table-normal"
+        >
+        <Column title="记录ID" field="id"   hide  type="number" sort search > {post.id} </Column>
+        <Column title="标题" field="title"   type="text" sort search >
+            <div class="flex items-center space-x-3">
+               <Avatar size="12" mask="squircle">
+                <img src={ post.cover }>
+               </Avatar>
+               <div>
+                  <div class="font-bold">{ post.title }</div>
+                  <div class="text-sm opacity-50">(更新于: <strong>{ post.updated_at}</strong>)</div>
+               </div>
+            </div>
+        </Column>
+
+        <Column title="内容" field="content" type="text"   search >
+          <a href="#">{ post.content }</a>
+        </Column>
+
+        <Column title="阅读数" field="read_count"   hide  type="number" sort search > {post.read_count} </Column>
+
+        <Column title="评分" field="rating"     type="number" sort search >
+           <Rating   field={:rating}  mask="mask-heart" bg_color="bg-green-400"
+                        half  size="sm"
+                     options={[
+                       [value: 1],
+                       [value: 2,  checked: true],
+                       [value: 3],
+                       [value: 4 ],
+                       [value: 5 ]
+                     ]} />
+        </Column>
+
+        <Column title="价格" field="price"   hide  type="number" sort search >
+           { post.price }
+        </Column>
+
+        <Column title="作者" field="user_id"     type="number" sort search >
+           { post.user_id }
+        </Column>
+
+
+        <Column title="发行时间" field="inserted_at" type="datetime" sort search  width="100px"
+           options={["2020-01-01"]}
+          >
+          {post.inserted_at}
+        </Column>
+
+        <Column title="操作" virtual >
+           <Button class="btn btn-outline btn-primary btn-xs">查看</Button>
+           <Button class="btn btn-outline btn-secondary btn-xs">编辑</Button>
+           <Button class="btn btn-outline btn-accent btn-xs">删除</Button>
+        </Column>
+      </Table>
+
+    </div>
+    <div>
+      {!-- 分页 --}
+      <div class="my-5">
+        <Pagination id="pagination" size="sm"  total={assigns.params.total}  pg_size={ assigns.params.per_page }   />
+      </div>
+    </div>
+</div>
