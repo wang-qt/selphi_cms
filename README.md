@@ -1,0 +1,2 @@
+# selphi_cms
+selphi_cms是一个使用selphi_daisy和selphi_dynatable组件的phoenix/liveview/surfa技术栈的，开箱即用的starter项目
