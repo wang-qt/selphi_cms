@@ -23,10 +23,8 @@ defmodule SelphiCmsWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    resources "/posts", PostController
 
     resources "/posts", PostController
-
     # 测试 live table
     live "/live-posts", Live.Tables.PostTable
 
@@ -66,12 +64,12 @@ defmodule SelphiCmsWeb.Router do
     end
   end
 
-  #  if Mix.env() == :dev do
+if Mix.env() == :dev do
   scope "/" do
     pipe_through :browser
     surface_catalogue "/catalogue"
   end
-  #  end
+end
 
 
   ## Authentication routes
